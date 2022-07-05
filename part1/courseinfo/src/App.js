@@ -17,17 +17,22 @@
  * still works
  */
 
+/**
+ * STEP 4
+ * And then place the objects into an array. Modify the variable definitions of App into the following form and modify the other parts of the application accordingly
+ */
+
 const Header = (props) => {
   return (
     <h1>{props.course}</h1>
   )
 }
 
-const Content = ({part1, part2, part3}) => {
+const Content = ({parts}) => {
   
-  const {name: name1, exercises: exercises1} = part1
-  const {name: name2, exercises: exercises2} = part2
-  const {name: name3, exercises: exercises3} = part3
+  const {name: name1, exercises: exercises1} = parts[0]
+  const {name: name2, exercises: exercises2} = parts[1]
+  const {name: name3, exercises: exercises3} = parts[2]
 
   return (
     <div>
@@ -46,28 +51,30 @@ const Part = ({part, exercises}) => {
   )
 }
 
-const Total = ({part1, part2, part3}) => <p>Number of exercises {part1.exercises + part2.exercises + part3.exercises}</p>
+const Total = ({parts}) => <p>Number of exercises {parts[0].exercises + parts[1].exercises + parts[2].exercises}</p>
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = {
-    name: 'Fundamentals of React',
-    exercises: 10
-  }
-  const part2 = {
-    name: 'Using props to pass data',
-    exercises: 7
-  }
-  const part3 = {
-    name: 'State of a component',
-    exercises: 14
-  }
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
 
   return (
     <div>
       <Header course={course} />
-      <Content part1={part1}  part2={part2} part3={part3} />
-      <Total part1={part1}  part2={part2} part3={part3} />
+      <Content parts={parts} />
+      <Total parts={parts}/>
     </div>
   )
 }
