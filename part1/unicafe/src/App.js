@@ -1,7 +1,6 @@
 import './App.css';
 import {useState} from 'react'
 
-
 const App = () => {
 
   const [countGood, setCountGood] = useState(0)
@@ -35,10 +34,19 @@ const App = () => {
       <p>Good: {countGood}</p>
       <p>Neutral: {countNeutral}</p>
       <p>Bad: {countBad}</p>
+      <p>All: {countGood + countNeutral + countBad}</p>
+      <p>Average: {
+        (countGood + countNeutral + countBad) > 0
+          ? ((countGood - countBad) / (countGood + countNeutral + countBad))
+          : 0
+        }</p>
+      <p>Positive: {
+        (countGood + countNeutral + countBad) > 0
+          ? (countGood / (countGood + countNeutral + countBad)) * 100
+          : 0
+        } %</p>
     </div>
-
   )
-
 }
 
 export default App;
