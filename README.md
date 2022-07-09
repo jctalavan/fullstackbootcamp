@@ -1,2 +1,3 @@
-# learningreact
-Learning react following https://fullstackopen.com/
+# fullstackbootcamp
+
+Bootcamp following https://fullstackopen.com/
