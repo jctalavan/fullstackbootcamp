@@ -1,11 +1,12 @@
 import './App.css';
 import {useState} from 'react'
+import {Statistics} from './components/Statistics.js'
 
 const App = () => {
 
-  const [countGood, setCountGood] = useState(0)
-  const [countNeutral, setCountNeutral] = useState(0)
-  const [countBad, setCountBad] = useState(0)
+  const [good, setCountGood] = useState(0)
+  const [neutral, setCountNeutral] = useState(0)
+  const [bad, setCountBad] = useState(0)
 
   const handleClickGoodBtn = () => {
     setCountGood(prevCount => prevCount + 1);
@@ -30,21 +31,7 @@ const App = () => {
 
       <br />
       
-      <h2>statistics</h2>
-      <p>Good: {countGood}</p>
-      <p>Neutral: {countNeutral}</p>
-      <p>Bad: {countBad}</p>
-      <p>All: {countGood + countNeutral + countBad}</p>
-      <p>Average: {
-        (countGood + countNeutral + countBad) > 0
-          ? ((countGood - countBad) / (countGood + countNeutral + countBad))
-          : 0
-        }</p>
-      <p>Positive: {
-        (countGood + countNeutral + countBad) > 0
-          ? (countGood / (countGood + countNeutral + countBad)) * 100
-          : 0
-        } %</p>
+      <Statistics good={good} neutral={neutral} bad={bad}/>
     </div>
   )
 }
