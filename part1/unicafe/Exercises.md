@@ -15,3 +15,7 @@ Expand your application so that it shows more statistics about the gathered feed
 Refactor your application so that displaying the statistics is extracted into its own Statistics component. The state of the application should remain in the App root component.
 
 Remember that components should not be defined inside other components.
+
+# Exercise 1.9
+
+Change your application to display statistics only once feedback has been gathered.
